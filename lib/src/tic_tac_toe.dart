@@ -31,70 +31,55 @@ class _HomePageState extends State<HomePage> {
     final List<int> winnerList = <int>[];
 
     //check winner on lines
-    if (_tileList[0] == _tileList[1] &&
-        _tileList[1] == _tileList[2] &&
-        _tileList[2] != Colors.white) {
+    if (_tileList[0] == _tileList[1] && _tileList[1] == _tileList[2] && _tileList[2] != Colors.white) {
       winnerList.add(0);
       winnerList.add(1);
       winnerList.add(2);
     }
-    if (_tileList[3] == _tileList[4] &&
-        _tileList[4] == _tileList[5] &&
-        _tileList[5] != Colors.white) {
+    if (_tileList[3] == _tileList[4] && _tileList[4] == _tileList[5] && _tileList[5] != Colors.white) {
       winnerList.add(3);
       winnerList.add(4);
       winnerList.add(5);
     }
-    if (_tileList[6] == _tileList[7] &&
-        _tileList[7] == _tileList[8] &&
-        _tileList[8] != Colors.white) {
+    if (_tileList[6] == _tileList[7] && _tileList[7] == _tileList[8] && _tileList[8] != Colors.white) {
       winnerList.add(6);
       winnerList.add(7);
       winnerList.add(8);
     }
 
     // check winner on columns
-    if (_tileList[0] == _tileList[3] &&
-        _tileList[3] == _tileList[6] &&
-        _tileList[6] != Colors.white) {
+    if (_tileList[0] == _tileList[3] && _tileList[3] == _tileList[6] && _tileList[6] != Colors.white) {
       winnerList.add(0);
       winnerList.add(3);
       winnerList.add(6);
     }
-    if (_tileList[1] == _tileList[4] &&
-        _tileList[4] == _tileList[7] &&
-        _tileList[7] != Colors.white) {
+    if (_tileList[1] == _tileList[4] && _tileList[4] == _tileList[7] && _tileList[7] != Colors.white) {
       winnerList.add(1);
       winnerList.add(4);
       winnerList.add(7);
     }
-    if (_tileList[2] == _tileList[5] &&
-        _tileList[5] == _tileList[8] &&
-        _tileList[8] != Colors.white) {
+    if (_tileList[2] == _tileList[5] && _tileList[5] == _tileList[8] && _tileList[8] != Colors.white) {
       winnerList.add(2);
       winnerList.add(5);
       winnerList.add(8);
     }
 
     // check winner on diagonals
-    if (_tileList[0] == _tileList[4] &&
-        _tileList[4] == _tileList[8] &&
-        _tileList[8] != Colors.white) {
+    if (_tileList[0] == _tileList[4] && _tileList[4] == _tileList[8] && _tileList[8] != Colors.white) {
       winnerList.add(0);
       winnerList.add(4);
       winnerList.add(8);
     }
-    if (_tileList[2] == _tileList[4] &&
-        _tileList[4] == _tileList[6] &&
-        _tileList[6] != Colors.white) {
+    if (_tileList[2] == _tileList[4] && _tileList[4] == _tileList[6] && _tileList[6] != Colors.white) {
       winnerList.add(2);
       winnerList.add(4);
       winnerList.add(6);
     }
 
     // check if game ended with no winner
-    if (winnerList.isEmpty && !_tileList.contains(Colors.white))
+    if (winnerList.isEmpty && !_tileList.contains(Colors.white)) {
       _gameEnded = true;
+    }
 
     return winnerList;
   }
@@ -141,8 +126,7 @@ class _HomePageState extends State<HomePage> {
                     setState(
                       () {
                         if (color == Colors.white) {
-                          _tileList[index] =
-                              _player ? Colors.green : Colors.red;
+                          _tileList[index] = _player ? Colors.green : Colors.red;
                           _winnerList = checkWinner();
                           if (_winnerList.isNotEmpty) {
                             showcaseLine();
